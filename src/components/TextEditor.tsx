@@ -33,10 +33,10 @@ export const TextEditor = ({ content, onChange, authorName, onAuthorChange }: Te
               placeholder="Start writing your content here..."
               value={content}
               onChange={(e) => onChange(e.target.value)}
-              className="min-h-[320px] resize-none border-0 bg-transparent text-base leading-relaxed focus:ring-0 focus:border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+              className="min-h-[320px] px-1 resize-none border-0 bg-transparent text-base leading-relaxed focus:ring-0 focus:border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
             />
           </div>
-           <div className="space-y-2 bg-[#F8F8F8] p-[16px] rounded-[8px]">
+           <div className="space-y-2 bg-[#F8F8F8] p-[8px] rounded-[8px]">
             <Label htmlFor="author" className="text-sm font-medium pl-3">
               Author name (optional)
             </Label>

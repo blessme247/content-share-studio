@@ -72,9 +72,9 @@ export const BackgroundSelector = ({
           ))}
         </div>
 
-        <div className="border-0.5 border-solid border-[#808080] w-full h-[0.5px] bg-[#808080]"></div>
+        {/* <div className="border-0.5 border-solid border-[#808080] w-full h-[0.5px] bg-[#808080]"></div> */}
 
-         <div className="space-y-2">
+         <div className="space-y-4  border-t border-solid border-0.5 border-grey-400 pt-4">
           {/* <Label htmlFor="font-select" className="text-sm font-medium">
             Choose font family
           </Label> */}
@@ -104,4 +104,4 @@ export const BackgroundSelector = ({
   );
 };
 
-export { backgroundOptions };
+// export { backgroundOptions };
