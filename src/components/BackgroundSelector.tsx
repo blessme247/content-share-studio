@@ -104,4 +104,4 @@ export const BackgroundSelector = ({
   );
 };
 
-// export { backgroundOptions };
+export { backgroundOptions };
