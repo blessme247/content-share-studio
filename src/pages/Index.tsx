@@ -17,89 +17,89 @@ const Index = () => {
   const [authorName, setAuthorName] = useState("");
   const previewRef = useRef<HTMLDivElement>(null);
 
-  const handleDownloadPNG = async () => {
-    if (!previewRef.current || !content.trim()) {
-      toast.warning("Please add some content first");
-      return;
-    }
+  // const handleDownloadPNG = async () => {
+  //   if (!previewRef.current || !content.trim()) {
+  //     toast.warning("Please add some content first");
+  //     return;
+  //   }
 
-    try {
-      const canvas = await html2canvas(previewRef.current, {
-        backgroundColor: null,
-        scale: 2,
-        useCORS: true,
-      });
+  //   try {
+  //     const canvas = await html2canvas(previewRef.current, {
+  //       backgroundColor: null,
+  //       scale: 2,
+  //       useCORS: true,
+  //     });
       
-      const link = document.createElement("a");
-      link.download = `canvas-share-${Date.now()}.png`;
-      link.href = canvas.toDataURL();
-      link.click();
+  //     const link = document.createElement("a");
+  //     link.download = `canvas-share-${Date.now()}.png`;
+  //     link.href = canvas.toDataURL();
+  //     link.click();
       
-      toast.success("PNG downloaded successfully!");
-    } catch (error) {
-      console.error("Error generating PNG:", error);
-      toast.error("Failed to download PNG");
-    }
-  };
+  //     toast.success("PNG downloaded successfully!");
+  //   } catch (error) {
+  //     console.error("Error generating PNG:", error);
+  //     toast.error("Failed to download PNG");
+  //   }
+  // };
 
-  const handleDownloadPDF = async () => {
-    if (!previewRef.current || !content.trim()) {
-      toast.warning("Please add some content first");
-      return;
-    }
+  // const handleDownloadPDF = async () => {
+  //   if (!previewRef.current || !content.trim()) {
+  //     toast.warning("Please add some content first");
+  //     return;
+  //   }
 
-    try {
-      const canvas = await html2canvas(previewRef.current, {
-        backgroundColor: null,
-        scale: 2,
-        useCORS: true,
-      });
+  //   try {
+  //     const canvas = await html2canvas(previewRef.current, {
+  //       backgroundColor: null,
+  //       scale: 2,
+  //       useCORS: true,
+  //     });
       
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF({
-        orientation: "portrait",
-        unit: "mm",
-        format: "a4",
-      });
+  //     const imgData = canvas.toDataURL("image/png");
+  //     const pdf = new jsPDF({
+  //       orientation: "portrait",
+  //       unit: "mm",
+  //       format: "a4",
+  //     });
       
-      const imgWidth = 210;
-      const pageHeight = 295;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      let heightLeft = imgHeight;
+  //     const imgWidth = 210;
+  //     const pageHeight = 295;
+  //     const imgHeight = (canvas.height * imgWidth) / canvas.width;
+  //     let heightLeft = imgHeight;
       
-      let position = 0;
+  //     let position = 0;
       
-      pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-      heightLeft -= pageHeight;
+  //     pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+  //     heightLeft -= pageHeight;
       
-      while (heightLeft >= 0) {
-        position = heightLeft - imgHeight;
-        pdf.addPage();
-        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
-      }
+  //     while (heightLeft >= 0) {
+  //       position = heightLeft - imgHeight;
+  //       pdf.addPage();
+  //       pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+  //       heightLeft -= pageHeight;
+  //     }
       
-      pdf.save(`canvas-share-${Date.now()}.pdf`);
-      toast.success("PDF downloaded successfully!");
-    } catch (error) {
-      console.error("Error generating PDF:", error);
-      toast.error("Failed to download PDF");
-    }
-  };
+  //     pdf.save(`canvas-share-${Date.now()}.pdf`);
+  //     toast.success("PDF downloaded successfully!");
+  //   } catch (error) {
+  //     console.error("Error generating PDF:", error);
+  //     toast.error("Failed to download PDF");
+  //   }
+  // };
 
-  const handleShare = () => {
-    if (!content.trim()) {
-      toast.warning("Please add some content first");
-      return;
-    }
+  // const handleShare = () => {
+  //   if (!content.trim()) {
+  //     toast.warning("Please add some content first");
+  //     return;
+  //   }
 
-    // For now, copy the content to clipboard and show sharing instructions
-    navigator.clipboard.writeText(content).then(() => {
-      toast.success("Content copied to clipboard! Download the image and share it on your favorite platform.");
-    }).catch(() => {
-      toast.error("Failed to copy content");
-    });
-  };
+  //   // For now, copy the content to clipboard and show sharing instructions
+  //   navigator.clipboard.writeText(content).then(() => {
+  //     toast.success("Content copied to clipboard! Download the image and share it on your favorite platform.");
+  //   }).catch(() => {
+  //     toast.error("Failed to copy content");
+  //   });
+  // };
 
   return (
     <div className="min-h-screen bg-gradient-subtle">
@@ -110,7 +110,7 @@ const Index = () => {
       <main className="container mx-auto px-4 py-8 ">
         <div 
         // className="grid lg:grid-cols-2 gap-6 h-[calc(100vh-120px)] " >
-        className="grid lg:grid-cols-2 gap-6  " >
+        className="grid lg:grid-cols-2 gap-6 h-[calc(100vh-120px)] " >
           {/* Left Panel - Text Editor */}
           <div className="lg:col-span-1 space-y-6">
             <TextEditor 

@@ -29,7 +29,8 @@ export const ContentPreview = forwardRef<HTMLDivElement, ContentPreviewProps>(
           <div className="relative w-full max-w-lg mx-auto">
             <div
               ref={previewRef}
-              className="relative w-full aspect-[4/5] rounded-lg overflow-hidden shadow-creative"
+              className="relative w-full aspect-[4/10] md:aspect-[4/7] rounded-lg overflow-hidden shadow-creative "
+              // className="relative w-full min-h-[350px] max-h-max rounded-lg overflow-hidden shadow-creative "
               style={{
                 backgroundImage: `url(${backgroundOption?.image})`,
                 backgroundSize: "cover",
